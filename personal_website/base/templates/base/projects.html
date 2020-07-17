@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gavin Uhran</title>
+    <link href="{% static '/css/projects.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/nav.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/footer.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color: #687288;">
+    <header>
+        <div class="nav-container">
+            <a href="/">
+                <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a class="nav-home" href="/">Home</a></li>
+                    <li><a class="nav-projects" href="/projects/">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div id="projects-list" class="row">
+            <div class="col-md-12">
+                <div class="card card-body h-100">
+                    <div class="projects-title-container">
+                        <h3>Projects</h3>
+                        <hr>
+                    </div>
+                    <div class="project-list-container">
+                        {% for project in projects %}
+                        <a class="project-link" href="{{ project.url }}" target="_blank">
+                            <div class="project">
+                                <h5 class="project-title">{{ project.title }}</h5>
+                                <p class="project-lang">{{ project.lang }}</p>
+                                <p class="project-desc">{{ project.desc }}</p>
+                                <p class="project-update">{{ project.date }}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-body h-75">
+                    <footer>
+                        <a href="/projects/">
+                            <h6 class="footer-text">Return to Top</h6>
+                        </a>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+</html>
