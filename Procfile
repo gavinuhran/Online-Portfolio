@@ -1,1 +1,1 @@
-web: gunicorn personal_wesbite.wsgi
+web: gunicorn personal_wesbite.wsgi --log-file -
